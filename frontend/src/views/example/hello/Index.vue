@@ -10,13 +10,68 @@
       <a class="setup" href="https://www.kaka996.com/" target="_blank">Get Started</a>
     </p>
   </section>
+
+  <!-- 仿百度搜索的日历 -->
+  <div class="calendarRoot">
+    <PerpetualCalendar />
+  </div>
+  <div> -------------------------------------- </div>
+
+  <!-- 农历月历 -->
+  <div class="calendarRoot">
+    <LunarCalendar />
+  </div>
+  <div> -------------------------------------- </div>
+
+  <!-- 农历月历 -->
+  <div class="calendarRoot">
+    <SolarMonthCalendar />
+  </div>
+  <div> -------------------------------------- </div>
+
+  <!-- 年历 -->
+  <div class="calendarRoot">
+    <YearCalendar />
+  </div>
+  <div> -------------------------------------- </div>
+
+  <!-- 老黄历 -->
+  <div class="calendarRoot">
+    <HuangLi />
+  </div>
+  <div> -------------------------------------- </div>
+
+    <!-- 周历 -->
+    <!-- <div class="calendarRoot">
+    <WeekCalendar />
+  </div>
+  <div> -------------------------------------- </div> -->
+
 </template>
+
 <script setup>
-console.log("hello")
+import { SolarDay } from 'tyme4ts';
+import { Solar } from 'lunar-typescript';
+import LunarCalendar from './LunarCalendar.vue';
+import PerpetualCalendar from './PerpetualCalendar.vue';
+import SolarMonthCalendar from './SolarMonthCalendar.vue';
+import YearCalendar from './YearCalendar.vue';
+import HuangLi from './HuangLi.vue';
+// import WeekCalendar from './WeekCalendar.vue';
 </script>
+
 <style scoped>
 section {
   padding: 42px 32px;
+}
+
+.calendarRoot {
+  display: flex;
+  unicode-bidi: isolate;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
 }
 
 #hero {
@@ -33,6 +88,7 @@ section {
   max-width: 960px;
   margin: 0px auto;
 }
+
 html:not(.dark) .accent,
 .dark .tagline {
   background: -webkit-linear-gradient(315deg, #42d392 25%, #647eff);
@@ -49,6 +105,7 @@ html:not(.dark) .accent,
   font-size: 22px;
   margin: 24px auto 40px;
 }
+
 .actions a {
   font-size: 16px;
   display: inline-block;
@@ -57,15 +114,16 @@ html:not(.dark) .accent,
   font-weight: 500;
   border-radius: 8px;
   transition: background-color 0.5s, color 0.5s;
-  text-decoration:none;
+  text-decoration: none;
 }
+
 .actions .setup {
   color: var(--vt-c-text-code);
   background: -webkit-linear-gradient(315deg, #42d392 25%, #647eff);
 }
+
 .actions .setup:hover {
   background-color: var(--vt-c-gray-light-4);
   transition-duration: 0.2s;
 }
 </style>
-  
